@@ -90,7 +90,7 @@ ui <- fluidPage(
                 ),
                 tabPanel("Histogram", 
                                  div(class = "result-box",
-                                         h3("Distribution of Pain Scores:", style = "color: #5e35b1;"),
+                                         h3("Distribution of Pain Scores:", style = "color: #ffffffff;"),
                                          plotOutput("histogram", height = "450px"),
                                          downloadButton("downloadHistogram", "Download Histogram", class = "download-btn")
                                  )
