@@ -72,5 +72,6 @@ jobs:
             rsconnect::deployApp(
               appDir = '.',
               appName = 'PSIDemo'
+              forceUpdate = TRUE
             )
           "
