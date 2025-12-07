@@ -36,10 +36,19 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y \
-            libssl-dev \
+            build-essential \
             libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev \
+            libfontconfig1-dev \
+            libharfbuzz-dev \
+            libfribidi-dev \
+            libfreetype6-dev \
+            libpng-dev \
+            libtiff5-dev \
+            libjpeg-dev \
             zlib1g-dev \
-            build-essential
+            pkg-config
 
       # --- 如果你使用 renv（可选） ---
       - name: Restore R packages via renv
