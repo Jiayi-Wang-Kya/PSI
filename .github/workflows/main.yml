@@ -2,8 +2,8 @@ name: Deploy Shiny App (Test Environment)
 
 on:
   push:
-    branches: [ "main" ]     # 推到 main 自动部署
-  workflow_dispatch:          # 允许手动触发
+    branches: ["main"] # 推到 main 自动部署
+  workflow_dispatch: # 允许手动触发
 
 jobs:
   deploy:
@@ -30,6 +30,16 @@ jobs:
       - name: Install rsconnect
         run: |
           Rscript -e "install.packages('rsconnect', repos='https://cloud.r-project.org')"
+
+      # --- 安装系统依赖后再 restore ---
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libssl-dev \
+            libcurl4-openssl-dev \
+            zlib1g-dev \
+            build-essential
 
       # --- 如果你使用 renv（可选） ---
       - name: Restore R packages via renv
