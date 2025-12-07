@@ -26,11 +26,6 @@ jobs:
           key: r-${{ runner.os }}-${{ hashFiles('**/renv.lock') }}
           restore-keys: r-${{ runner.os }}-
 
-      # --- 安装 rsconnect，用于部署 ---
-      - name: Install rsconnect
-        run: |
-          Rscript -e "install.packages('rsconnect', repos='https://cloud.r-project.org')"
-
       # --- 安装系统依赖后再 restore ---
       - name: Install system dependencies
         run: |
@@ -49,6 +44,11 @@ jobs:
             libjpeg-dev \
             zlib1g-dev \
             pkg-config
+
+      # --- 安装 rsconnect，用于部署 ---
+      - name: Install rsconnect
+        run: |
+          Rscript -e "install.packages('rsconnect', repos='https://cloud.r-project.org')"
 
       # --- 如果你使用 renv（可选） ---
       - name: Restore R packages via renv
